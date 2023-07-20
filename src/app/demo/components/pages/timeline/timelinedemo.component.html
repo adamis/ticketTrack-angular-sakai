@@ -1,0 +1,36 @@
+<div class="col-12">
+     <p-breadcrumb [model]="breadcrumbItems" [home]="{ icon: 'pi pi-home', routerLink: '/' }"></p-breadcrumb>
+</div>
+
+<div class="col-12">
+    <div class="card">
+        <div class="p-fluid p-formgrid grid">
+            <div class="field col-12 md:col-4">
+                <label htmlFor="ticket">Ticket</label>
+                <input pInputText id="ticket" type="text" maxlength="12"/>
+            </div>
+            <div class="field col-12 md:col-2">
+                <label htmlFor="search">&nbsp;</label>
+                <p-button label="Search" icon="pi pi-search" styleClass="p-button-warning" (onClick)="search()"></p-button>
+            </div>
+
+        </div>
+
+    <div class="col-12" style="text-align: center;" *ngIf="events1.length !== 0">
+        <h5>Timeline</h5>
+    </div>
+    <p-timeline [value]="events1" align="alternate" styleClass="customized-timeline">
+        <ng-template pTemplate="marker" let-event>
+        <span class="flex z-1 w-2rem h-2rem align-items-center justify-content-center text-white border-circle shadow-2" [style.backgroundColor]="event.color">
+            <i [ngClass]="event.icon"></i>
+        </span>
+        </ng-template>
+        <ng-template pTemplate="content" let-event>
+            <p-card [header]="event.status" [subheader]="event.date">
+                <p class="line-height-3 my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+            </p-card>
+        </ng-template>
+    </p-timeline>
+</div>
+
