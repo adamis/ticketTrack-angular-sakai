@@ -1,3 +1,4 @@
+import { TimelineService } from './../../../service/timeline.service';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -24,6 +25,9 @@ import { CardModule } from 'primeng/card';
         InputTextModule,
         TimelineDemoRoutingModule
     ],
-    declarations: [TimelineDemoComponent]
+    declarations: [TimelineDemoComponent],
+    providers: [
+        TimelineService
+    ]
 })
 export class TimelineDemoModule { }
